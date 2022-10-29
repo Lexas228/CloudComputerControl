@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ru.idea.ccc.userservicegrpc";
+option java_outer_classname = "UserServiceProto";
+
+
+service UserService{
+  rpc createUser(CreateUserRequest) returns (ResponseUser) {};
+  rpc loginUser(LoginUserRequest) returns (ResponseUser){};
+}
+
+
+message CreateUserRequest{
+  string name = 1;
+  string login = 2;
+  string surname = 3;
+  string lastName = 4;
+  string password = 5;
+  string confirmPassword = 6;
+}
+
+message LoginUserRequest{
+  string login = 1;
+  string password = 2;
+}
+
+message ResponseUser{
+  string name = 1;
+  string surname = 2;
+  string lastName = 3;
+  string login = 4;
+  string token = 5;
+};

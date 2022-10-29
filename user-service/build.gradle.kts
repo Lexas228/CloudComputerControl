@@ -1,17 +1,19 @@
 plugins {
     id("java")
+    id("org.springframework.boot") version "2.7.5"
 }
 
+
 group = "ru.idea.ccc"
-version = "unspecified"
+version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    implementation("net.devh:grpc-spring-boot-starter:2.13.1.RELEASE")
+    implementation(project(":user-servie-grpc"))
 }
 
 tasks.getByName<Test>("test") {
